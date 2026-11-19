@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Pressable, StyleSheet, Text, TextInput, View } from 'react-native';
 import { useQueue } from '../context/QueueContext';
+import { useTrackRender } from '../eval/RenderTracker';
 import type { Incident } from '../types/incident';
 
 interface IncidentRowProps {
@@ -8,6 +9,7 @@ interface IncidentRowProps {
 }
 
 export function IncidentRow({ incident }: IncidentRowProps) {
+  useTrackRender(`row:${incident.id}`);
   const { bookmarkedIds, toggleBookmark } = useQueue();
   const [expanded, setExpanded] = useState(false);
   const [draftNote, setDraftNote] = useState('');

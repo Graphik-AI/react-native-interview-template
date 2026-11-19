@@ -2,6 +2,7 @@ import { StatusBar } from 'expo-status-bar';
 import { StyleSheet } from 'react-native';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context';
+import { DiagnosticsHud } from './src/eval/DiagnosticsHud';
 import { IncidentQueueScreen } from './src/screens/IncidentQueueScreen';
 
 export default function App() {
@@ -11,6 +12,7 @@ export default function App() {
         <SafeAreaView style={styles.root} edges={['top', 'left', 'right']}>
           <StatusBar style="light" />
           <IncidentQueueScreen />
+          <DiagnosticsHud />
         </SafeAreaView>
       </SafeAreaProvider>
     </GestureHandlerRootView>
